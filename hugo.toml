@@ -1,0 +1,160 @@
+# =============================================================================
+# Hugo Configuration for blog.thelabdesk.com
+# Theme:    PaperMod
+# Deploy:   GitHub → Cloudflare Pages (auto-build on push to main)
+# =============================================================================
+
+baseURL      = "https://blog.thelabdesk.com/"
+title        = "TheLabDesk"
+languageCode = "en-us"
+theme        = "PaperMod"
+rssLimit     = 20
+
+# No emojis anywhere — applies to all rendered content.
+enableEmoji = false
+
+[pagination]
+  pagerSize = 10
+
+
+# -----------------------------------------------------------------------------
+# Global Params
+# -----------------------------------------------------------------------------
+[params]
+  env             = "production"
+  author          = "labsio"
+  defaultTheme    = "auto"
+  ShowThemeToggle = true
+
+  # Post display
+  ShowReadingTime                = true
+  ShowWordCount                  = true
+  ShowToc                        = true
+  TocOpen                        = false
+  ShowBreadCrumbs                = true
+  ShowPostNavLinks               = true
+  ShowCodeCopyButtons            = true
+  ShowTags                       = true
+  ShowRssButtonInSectionTermList = true
+
+  # Disabled cosmetics that don't fit voice
+  ShowShareButtons = false   # engineers share through their own networks, not generic widgets
+  comments         = false   # no comments system; engagement happens via GitHub issues / external
+
+  # SEO + social previews
+  description = "Notes from an engineer learning Cloud, DevOps, and Platform Engineering in the open. Homelab experiments, Azure work patterns, and what breaks along the way."
+  keywords    = ["devops", "homelab", "azure", "kubernetes", "terraform", "platform engineering", "self-hosted", "cloudflare", "ansible"]
+
+  # Default OG image for social shares (LinkedIn, X, Mastodon)
+  # Create this file at static/images/og-default.png — 1200x630px recommended.
+  # Until then, social shares will fall back to no image (acceptable, just less visual).
+  images = ["/images/og-default.png"]
+
+
+# -----------------------------------------------------------------------------
+# Home Page intro (renders above post list)
+# -----------------------------------------------------------------------------
+[params.homeInfoParams]
+  Title = "$ whoami"
+  Content = """
+Engineering notes from the messy middle — a few years into Cloud / DevOps, learning out loud. Expect homelab experiments, Azure patterns, architecture decisions, and honest postmortems of what breaks.
+"""
+
+
+# -----------------------------------------------------------------------------
+# Social icons — narrow, deliberate. No LinkedIn (intentional separation).
+# -----------------------------------------------------------------------------
+[[params.socialIcons]]
+  name = "github"
+  url  = "https://github.com/labsio"
+
+[[params.socialIcons]]
+  name = "rss"
+  url  = "/index.xml"
+
+
+# -----------------------------------------------------------------------------
+# Cover image defaults for posts
+# -----------------------------------------------------------------------------
+[params.cover]
+  linkFullImages   = true
+  responsiveImages = true
+  hidden           = false
+
+
+# -----------------------------------------------------------------------------
+# Edit on GitHub — adds "Suggest changes" link on each post.
+# Strong portfolio signal: invites contribution, shows IaC mindset for content.
+# -----------------------------------------------------------------------------
+[params.editPost]
+  URL            = "https://github.com/labsio/blog.thelabdesk.com/tree/main/content"
+  Text           = "Suggest changes"
+  appendFilePath = true
+
+
+# -----------------------------------------------------------------------------
+# Navigation menu — minimal until backlog grows
+# -----------------------------------------------------------------------------
+[menu]
+  [[menu.main]]
+    name   = "Tags"
+    url    = "/tags/"
+    weight = 10
+
+  [[menu.main]]
+    name   = "About"
+    url    = "/about/"
+    weight = 20
+
+# Note:
+# - Add Search to menu when you have ~15+ posts (config below is ready).
+# - Add Archives when you have ~20+ posts.
+# - Add Categories only if pillar tags grow beyond 5-6 — usually tags suffice.
+
+
+# -----------------------------------------------------------------------------
+# Outputs — JSON required for Search functionality (Fuse.js)
+# -----------------------------------------------------------------------------
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+
+# -----------------------------------------------------------------------------
+# Code highlighting
+# -----------------------------------------------------------------------------
+[markup.highlight]
+  noClasses   = false      # use CSS classes — supports theme switching
+  guessSyntax = true
+  lineNos     = true
+  style       = "dracula"
+  tabWidth    = 2
+
+# Allow raw HTML inside markdown (for callout boxes, embeds, mermaid, etc.)
+[markup.goldmark.renderer]
+  unsafe = true
+
+
+# -----------------------------------------------------------------------------
+# Search (Fuse.js) — config ready, not yet linked from menu
+# -----------------------------------------------------------------------------
+[params.fuseOpts]
+  threshold = 0.2
+  keys      = ["title", "permalink", "summary", "content", "tags"]
+
+
+# -----------------------------------------------------------------------------
+# Sitemap
+# -----------------------------------------------------------------------------
+[sitemap]
+  changefreq = "weekly"
+  priority   = 0.5
+  filename   = "sitemap.xml"
+
+
+# -----------------------------------------------------------------------------
+# Minification
+# -----------------------------------------------------------------------------
+[minify]
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepWhitespace = false
