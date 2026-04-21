@@ -57,9 +57,7 @@ enableEmoji = false
 [params.homeInfoParams]
   Title = "$ whoami"
   Content = """
-I'm an engineer ~2 years into a Cloud / DevOps career — currently working with Azure, Terraform, and Kubernetes by day, and running a homelab stack in my free time. This is where I write about both: what I'm learning, what breaks, and what I'd do differently.
-
-Written for other engineers earlier on the path who want honest learning content, not expert wisdom they're not ready to apply yet.
+Engineering notes from the messy middle — a few years into Cloud / DevOps, learning out loud. Expect homelab experiments, Azure patterns, architecture decisions, and honest postmortems of what breaks.
 """
 
 
