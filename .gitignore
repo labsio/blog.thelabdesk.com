@@ -1,0 +1,29 @@
+# Hugo build artifacts
+public/
+resources/
+.hugo_build.lock
+
+# Hugo modules cache
+.cache/
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment files (defense-in-depth — blog shouldn't have secrets but never know)
+.env
+.env.local
+.env.*.local
+
+# Credentials safety net
+*.pem
+*.key
+
+# Node (if a JS toolchain is added later for theme tweaks)
+node_modules/
