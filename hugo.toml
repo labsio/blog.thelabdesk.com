@@ -42,7 +42,7 @@ enableEmoji = false
   comments         = false   # no comments system; engagement happens via GitHub issues / external
 
   # SEO + social previews
-  description = "Notes from an engineer learning Cloud, DevOps, and Platform Engineering in the open. Homelab experiments, Azure work patterns, and what breaks along the way."
+  description = "Engineering notes on running a homelab and working in Cloud / DevOps - what I build, why, and what breaks. Kubernetes, Terraform, GitOps, self-hosting."
   keywords    = ["devops", "homelab", "azure", "kubernetes", "terraform", "platform engineering", "self-hosted", "cloudflare", "ansible"]
 
   # Default OG image for social shares (LinkedIn, X, Mastodon)
@@ -57,7 +57,7 @@ enableEmoji = false
 [params.homeInfoParams]
   Title = "$ whoami"
   Content = """
-Engineering notes from the messy middle — a few years into Cloud / DevOps, learning out loud. Expect homelab experiments, Azure patterns, architecture decisions, and honest postmortems of what breaks.
+Engineering notes from a homelab and the day job - homelab experiments, architecture decisions, and honest postmortems of what breaks. Cloud, DevOps, and the tools I'm getting good at.
 """
 
 
